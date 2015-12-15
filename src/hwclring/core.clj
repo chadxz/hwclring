@@ -1,7 +1,9 @@
 (ns hwclring.core
-  (:gen-class))
+  (:require [hwclring.handlers :refer [app]])
+  (:require [ring.adapter.jetty :refer [run-jetty]]))
 
 (defn -main
-  "I don't do a whole lot ... yet."
-  [& args]
-  (println "Hello, World!"))
+  "Start a webserver that says hello"
+  []
+  (println "Starting webserver on port 3000")
+  (run-jetty app {:port 3000}))
